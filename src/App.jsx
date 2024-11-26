@@ -3,6 +3,7 @@ import ArticleList from "./components/ArticleList";
 import ArticleDetail from "./components/ArticleDetail";
 import HeroSection from "./components/HeroSection";
 import About from "./components/About";
+import { Link } from "react-router-dom";
 
 const App = () => {
   return (
@@ -16,18 +17,18 @@ const App = () => {
           <div className="container mx-auto px-6 py-4 flex justify-between items-center">
             <h1 className="text-2xl font-bold text-blue-600">مقالاتي</h1>
             <nav>
-              <a
-                href="/"
+              <Link
+                to="/"
                 className="text-gray-600 hover:text-blue-600 transition font-medium ml-4"
               >
                 الصفحة الرئيسية
-              </a>
-              <a
-                href="/about"
+              </Link>
+              <Link
+                to="/about"
                 className="text-gray-600 hover:text-blue-600 transition font-medium ml-4"
               >
                 من أنا
-              </a>
+              </Link>
             </nav>
           </div>
         </header>
