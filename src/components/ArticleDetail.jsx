@@ -61,8 +61,8 @@ const ArticleDetail = () => {
           </h3>
           <ul className="space-y-3">
             {articles
-              .filter((a) => a.id !== article.id) // Exclude the current article
-              .slice(0, 15) // Limit to 5 articles
+              .filter((a) => a.id !== article.id)
+              .slice(0, 15) 
               .map((a) => (
                 <li key={a.id}>
                   <Link
