@@ -19,15 +19,10 @@ const ArticleDetail = () => {
   }
 
   return (
-    <div className="bg-gray-100 p-2" dir="rtl">
+    <div className="bg-gray-600 p-2" dir="rtl">
       {/* Main Layout */}
-      <div className="max-w-screen-xl mx-auto grid grid-cols-1 lg:grid-cols-5 gap-6 sm:gap-0">
-        {/* Left Sidebar for Ads */}
-        <div className="hidden lg:block bg-gray-200 p-4 rounded-lg shadow-md col-span-1 h-[20%]">
-          <p className="text-center text-gray-700">إعلان 1</p>
-        </div>
-
-        {/* Main Article Section (50% width) */}
+      <div className="max-w-screen-xl mx-auto grid grid-cols-1 lg:grid-cols-4 gap-6 sm:gap-0">
+        {/* Main Article Section */}
         <div className="lg:col-span-3 bg-white rounded-lg shadow-lg p-6 lg:mx-2">
           {/* Back to Articles Link */}
           <Link to="/" className="text-blue-500 hover:text-blue-700">
@@ -59,16 +54,33 @@ const ArticleDetail = () => {
           </div>
         </div>
 
-        {/* Right Sidebar for Ads */}
-        <div className="hidden lg:block bg-gray-200 p-4 rounded-lg shadow-md col-span-1 h-[20%]">
-          <p className="text-center text-gray-700">إعلان 2</p>
+        {/* Right Sidebar for Article List */}
+        <div className="lg:block bg-gray-100 p-4 rounded-lg shadow-md col-span-1">
+          <h3 className="text-xl font-semibold text-gray-800 mb-4">
+            مقالات أخرى
+          </h3>
+          <ul className="space-y-3">
+            {articles
+              .filter((a) => a.id !== article.id) // Exclude the current article
+              .slice(0, 15) // Limit to 5 articles
+              .map((a) => (
+                <li key={a.id}>
+                  <Link
+                    to={`/articles/${a.id}`}
+                    className="text-blue-500 hover:text-blue-700"
+                  >
+                    {a.title}
+                  </Link>
+                </li>
+              ))}
+          </ul>
         </div>
       </div>
 
-      {/* Bottom Ads */}
-      <div className="mt-8 bg-gray-200 h-40 rounded-lg shadow-md p-4 flex justify-center items-center">
+      {/* Bottom Section for Ads (Optional) */}
+      {/* <div className="mt-8 bg-gray-200 h-40 rounded-lg shadow-md p-4 flex justify-center items-center">
         <p className="text-center text-gray-700">إعلان في الأسفل</p>
-      </div>
+      </div> */}
     </div>
   );
 };

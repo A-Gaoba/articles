@@ -1,6 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ArticleList from "./components/ArticleList";
 import ArticleDetail from "./components/ArticleDetail";
+import HeroSection from "./components/HeroSection";
+import About from "./components/About";
 
 const App = () => {
   return (
@@ -16,9 +18,15 @@ const App = () => {
             <nav>
               <a
                 href="/"
-                className="text-gray-600 hover:text-blue-600 transition font-medium"
+                className="text-gray-600 hover:text-blue-600 transition font-medium ml-4"
               >
                 الصفحة الرئيسية
+              </a>
+              <a
+                href="/about"
+                className="text-gray-600 hover:text-blue-600 transition font-medium ml-4"
+              >
+                من أنا
               </a>
             </nav>
           </div>
@@ -28,7 +36,9 @@ const App = () => {
         <main className="flex-grow">
           <div className="container mx-auto px-6 py-8">
             <Routes>
-              <Route path="/" element={<ArticleList />} />
+              <Route path="/" element={<HeroSection />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/articles" element={<ArticleList />} />
               <Route path="/article/:id" element={<ArticleDetail />} />
             </Routes>
           </div>
