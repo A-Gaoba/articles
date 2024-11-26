@@ -66,7 +66,7 @@ const ArticleDetail = () => {
               .map((a) => (
                 <li key={a.id}>
                   <Link
-                    to={`/articles/${a.id}`}
+                    to={`/article/${a.id}`}
                     className="text-blue-500 hover:text-blue-700"
                   >
                     {a.title}
